@@ -7,7 +7,8 @@ def get_recent_messages():
     # define the file name and learn instruction 
     file_name = "stored_data.json"
     learn_instruction = {
-        "role": "assistant",
+        # changed from assistant to system
+        "role": "system",
         "content": "You are interviewing the user for a job as a cook. Ask short questions taht are relevant to the junior position. Your name is Rachel. This user is called Sai. Keep your answers to under 30 words."
     }
 
@@ -64,3 +65,9 @@ def store_messages(request_mesage, reponse_mesage):
     # save the updated file 
     with open(file_name, "w") as f: 
         json.dump(messages, f)
+
+# reset messages 
+def reset_messages():
+
+    # overwrite the current file with nothing
+    open("stored_data.json", "w")

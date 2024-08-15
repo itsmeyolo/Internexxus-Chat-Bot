@@ -9,8 +9,9 @@ from fastapi.middleware.cors import CORSMiddleware
 #import openai 
 
 # Coustom Function Imports
-from database import store_messages
-from openai_requests import convert_audio_to_text,  get_chat_response
+from functions.database import store_messages, reset_messages
+from functions.openai_requests import convert_audio_to_text,  get_chat_response
+from functions.text_to_speech import convert_text_to_speech
 
 # Initiate App
 app = FastAPI()
@@ -38,12 +39,23 @@ app.add_middleware(
 async def check_health():
     return {"message": "healthy"}
 
-# Get audio
-@app.post("/post-audio-get/")
-async def get_audio():
+#Reset Health
+@app.get("/reset")
+async def reset_conversation():
+    reset_messages()
+    return {"message": "conversation reset"}
 
-    #Get saved audio
-    audio_input = open("voice.mp3", "rb")
+# Get audio
+@app.post("/post-audio/")
+async def post_audio(file: UploadFile = File(...)):
+
+    # #Get saved audio
+    # audio_input = open("voice.mp3", "rb")
+
+    # save file from front end 
+    with open(file.filename, "wb") as buffer:
+        buffer.write(file.file.read())
+    audio_input = open(file.filename, "rb")
 
     #Decode audion
     message_decoded = convert_audio_to_text(audio_input)
@@ -56,16 +68,24 @@ async def get_audio():
     print(message_decoded)
     chat_response = get_chat_response(message_decoded)
 
+    # guard: ensure message decoded
+    if not chat_response:
+        return HTTPException(status_code = 400, detail = "Faileds to get chat response")
+
     # store messages
     store_messages(message_decoded, chat_response)
 
-    print(chat_response)
+    #convert chat response to audio
+    audio_output = convert_text_to_speech(chat_response)
 
-    return "Done"
+    # guard: ensure message decoded
+    if not audio_output:
+        return HTTPException(status_code = 400, detail = "Faileds to get eleven labs audio response")
 
-# Post bot response 
-# Nodte: Not playing in browser when using post request 
-# @app.post("/post-audio/")
-# async def post_audio(file: UploadFile = File(...)):
+    #create a generator that yields chunks of data 
+    def iterfile():
+        yield audio_output
 
-#     print("hello")
+    # return audio file 
+    return StreamingResponse(iterfile(), media_type="application/octet-stream")
+

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # import coustom functions
-from database import get_recent_messages
+from functions.database import get_recent_messages
 
 # Retrive Environment Varibales 
 openai.organization= os.getenv("OPEN_AI_ORG")
@@ -42,7 +42,7 @@ def get_chat_response(message_input):
           model = "gpt-4",
           messages = messages
         )
-        # message_text = response["choices"][0]["messages"]["content"]
+        # msage_estext = response["choices"][0]["messages"]["content"]
         message_text = response.choices[0].message.content
         return message_text
     except Exception as e:
