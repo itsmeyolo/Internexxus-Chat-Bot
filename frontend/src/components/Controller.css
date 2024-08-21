@@ -1,0 +1,15 @@
+.container {
+    height: 100vh;
+    overflow-y: hidden;
+    padding-left: 2rem;
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 96px;
+}
