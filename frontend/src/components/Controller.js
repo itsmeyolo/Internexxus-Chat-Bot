@@ -71,8 +71,39 @@ function Controller() {
 
       {/* <audio src={blob} controls /> */}
 
+      {/* Conversation */}
+      <div className = "mt-5 px-5">
+        {messages.map((audio, index) => {
+          return (
+            <div 
+              key={index + audio.sender} 
+              className={`message ${audio.sender === "rachel" ? "rachel-message" : "me-message"}`}
+            >
+              {/* Sender */}
+              <div className="mt-4">
+                <p className={audio.sender === "rachel" ? "rachel-sender" : "me-sender"}>
+                  {audio.sender}
+                </p>
+
+                {/* Audio Message */}
+                <audio src={audio.blobUrl} className="audio-message" controls />
+              </div>
+
+            </div>
+          );
+        })}
+
+        {messages.length == 0 && !isLoading && (
+          <div className="no-messages">Send Rachel a message...</div>
+        )}
+
+        {isLoading && (
+          <div className="loading">Give me a few seconds...</div>
+        )}
+      </div>
+
       {/* Recorder */}
-      <div className="content">
+      <div className="recorder">
         <RecordMessage handleStop={handleStop}/>
       </div>
     </div>
