@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactMediaRecorder } from 'react-media-recorder';
-import './RecordMessage.css'; // Import the CSS file
+import './RecordMessage.css';
 import RecordIcon from './RecordIcon';
 
 function RecordMessage({ handleStop }) {
@@ -14,7 +14,9 @@ function RecordMessage({ handleStop }) {
             onMouseDown={startRecording}
             onMouseUp={stopRecording}
             className='record-message-button'>
-            <RecordIcon></RecordIcon>
+            <RecordIcon 
+              classText={status === "recording" ? "recording-icon" : "idle-icon"}
+            />
           </button>
           <p className='record-message-text'>
             {status}

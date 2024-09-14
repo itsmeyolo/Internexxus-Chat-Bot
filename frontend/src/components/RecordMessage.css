@@ -1,16 +1,39 @@
 .record-message-container {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.record-message-button {
+  background-color: white; 
+  padding: 1rem;
+  border-radius: 9999px; 
+  border: none;
+  cursor: pointer;
+}
+
+.record-message-text {
+  margin-top: 0.5rem;
+  color: white;
+  font-weight: 300;
+}
+
+.recording-icon {
+  animation: pulse 1s infinite;
+  color: red;
+}
+
+.idle-icon {
+  color: skyblue;
+}
+
+/* Define pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  
-  .record-message-button {
-    background-color: white; 
-    padding: 1rem;
-    border-radius: 9999px; 
+  50% {
+    transform: scale(1.1);
   }
-  
-  .record-message-text {
-    margin-top: 0.5rem;
-    color: white;
-    font-weight: 300;
+  100% {
+    transform: scale(1);
   }
-  
+}
