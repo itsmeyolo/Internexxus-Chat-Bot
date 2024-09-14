@@ -1,0 +1,16 @@
+.record-message-container {
+    margin-top: 0.5rem;
+  }
+  
+  .record-message-button {
+    background-color: white; 
+    padding: 1rem;
+    border-radius: 9999px; 
+  }
+  
+  .record-message-text {
+    margin-top: 0.5rem;
+    color: white;
+    font-weight: 300;
+  }
+  
