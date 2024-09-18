@@ -13,16 +13,17 @@
 .record-message-text {
   margin-top: 0.5rem;
   color: white;
+  font-family: 'Poppins', sans-serif;
   font-weight: 300;
 }
 
 .recording-icon {
   animation: pulse 1s infinite;
-  color: red;
+  color: #18326F;
 }
 
 .idle-icon {
-  color: skyblue;
+  color: #6288CE;
 }
 
 /* Define pulse animation */

@@ -45,7 +45,7 @@ function Title( {setMessages} ) {
 
     return (
         <div className="container">
-            <div className="italicText"> Rachel</div>
+            {/* <div className="italicText"> Rachel</div> */}
                 <button 
                     className="button animate-pulse" 
                     onClick={resetConversation} 

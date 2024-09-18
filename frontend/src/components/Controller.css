@@ -36,14 +36,14 @@
 .rachel-sender {
     text-align: right;
     margin-right: 0.5rem; /* Tailwind mr-2 */
-    font-style: italic;
-    color: green; /* Tailwind text-green-500 */
+    font-family: 'Poppins', sans-serif;
+    color: black; /* Tailwind text-green-500 */
 }
 
 .me-sender {
     margin-left: 0.5rem; /* Tailwind ml-2 */
-    font-style: italic;
-    color: blue; /* Tailwind text-blue-500 */
+    font-family: 'Poppins', sans-serif;
+    color: black; /* Tailwind text-blue-500 */
 }
 
 .audio-message {
@@ -52,8 +52,8 @@
 
 .no-messages, .loading {
     text-align: center;
-    font-weight: 300;
-    font-style: italic;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
     margin-top: 4.5rem; /* Tailwind mt-18 */
 }
 
