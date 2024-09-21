@@ -1,10 +1,14 @@
+.body {
+  background-image: url('internexxus_bg.png');
+}
+
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 1rem;
-    background-image: linear-gradient(to right,#CCF0E8,#16D5A8, #87B2FF);
+    /* background-image: linear-gradient(to right,#CCF0E8,#16D5A8, #87B2FF); */
     color: black;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;

@@ -5,7 +5,7 @@ import './Title.css';
 function Title( {setMessages} ) {
 
     const [isResetting, setIsResetting] = useState(false);
-    const [status, setStatus] = useState("idle");
+    const [status, setStatus] = useState("Click here to Start Interview");
 
 
     console.log('Type of setMessages: ', typeof setMessages);
@@ -43,7 +43,9 @@ function Title( {setMessages} ) {
     };
 
 
+    // TODO: instead of return, update existing container. will resolve duplicate containers
     return (
+        <div className="body">
         <div className="container">
             {/* <div className="italicText"> Rachel</div> */}
                 <button 
@@ -66,6 +68,7 @@ function Title( {setMessages} ) {
                     </svg>
                     {isResetting ? 'Resetting...' : 'Reset Conversation'}
                 </button>
+        </div>
         </div>
       )
 }

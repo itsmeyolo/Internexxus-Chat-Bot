@@ -65,9 +65,9 @@ function Controller() {
 
   return (
     <div className='container'>
-      <div>
+      {/* <div>
         <Title setMessages={setMessages}/>
-      </div>
+      </div> */}
 
       {/* <audio src={blob} controls /> */}
 
