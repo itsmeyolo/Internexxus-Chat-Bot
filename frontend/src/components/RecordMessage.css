@@ -3,7 +3,7 @@
 }
 
 .record-message-button {
-  background-color: white; 
+  background-color: #16D5A8; 
   padding: 1rem;
   border-radius: 9999px; 
   border: none;
@@ -12,7 +12,7 @@
 
 .record-message-text {
   margin-top: 0.5rem;
-  color: white;
+  color: #16D5A8;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
 }

@@ -42,8 +42,6 @@ function Title( {setMessages} ) {
         }
     };
 
-
-    // TODO: instead of return, update existing container. will resolve duplicate containers
     return (
         <div className="body">
         <div className="container">
